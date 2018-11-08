@@ -1,0 +1,14 @@
+uuid: a6ea4205-7e6b-44a3-9214-3293164010d2
+name: buildtools-d8-composer-fs
+mail: petergallaroundemail@gmail.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
