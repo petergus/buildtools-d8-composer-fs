@@ -3,12 +3,20 @@
     "description": "Install drops-8 with Composer on Pantheon.",
     "type": "project",
     "license": "MIT",
-    "repositories": [
-        {
+    "repositories": {
+        "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
-        }
-    ],
+        },
+         "commerce_base": {
+            "type": "vcs",
+            "url": "https://github.com/drupalcommerce/commerce_base"
+        },
+        "asset-packagist": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }       
+    },
     "require": {
         "php": ">=7.0.8",
         "composer/installers": "^1.0.20",
@@ -23,7 +31,20 @@
         "rvtraveller/qs-composer-installer": "^1.1",
         "drush-ops/behat-drush-endpoint": "^0.0.5",
         "pantheon-systems/quicksilver-pushback": "~1",
-        "webflo/drupal-core-strict": "^8"
+        "webflo/drupal-core-strict": "^8",
+        "drupal/admin_toolbar": "~1.0",
+        "drupal/commerce": "~2.0",
+        "drupal/search_api": "^1.6",
+        "drupal/swiftmailer": "~1.0",
+        "drupal/token": "~1.0",
+        "drupalcommerce/commerce_base": "dev-8.x-1.x",
+        "oomphinc/composer-installers-extender": "^1.1",
+        "webflo/drupal-finder": "^1.0",
+        "webmozart/path-util": "^2.3",
+        "drupal/commerce_authnet": "^1.0@beta",
+        "drupal/commerce_shipping": "^2.0@beta",
+        "drupal/search_api_solr": "^1.2"
+
     },
     "require-dev": {
         "mikey179/vfsstream": "^1.2",
@@ -77,8 +98,17 @@
             "web/modules/contrib/{$name}": ["type:drupal-module"],
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
-            "drush/contrib/{$name}": ["type:drupal-drush"]
+            "drush/contrib/{$name}": ["type:drupal-drush"],
+            "web/libraries/{$name}": [
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
+            ]            
         },
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],        
         "build-env": {
             "install-cms": [
                 "drush site-install standard --account-mail={account-mail} --account-name={account-name} --account-pass={account-pass} --site-mail={site-mail} --site-name={site-name} --yes",
@@ -109,6 +139,8 @@
         "sort-packages": true,
         "platform": {
             "php": "7.0.8"
-        }
+        },
+        "bin-dir": "bin",
+        "sort-packages": true        
     }
 }
