@@ -1,0 +1,7 @@
+name: buildtools-d-8-composer-fs
+recipe: pantheon
+config:
+  framework: drupal8
+  site: buildtools-d8-composer-fs
+  id: 1e840704-c187-439e-964a-805ef666e8bf
+  webroot: web
